@@ -1,6 +1,6 @@
 # Source release checks — 25 September 2026
 
-Status: local release candidate; no public GitHub repository has been created or uploaded by this preparation step.
+Status: local release candidate. The public repository https://github.com/Olwifofficial/olwif has been created, but the code upload is pending GitHub authentication for the organisation owner. No source has been pushed yet.
 
 ## Scope
 
@@ -23,7 +23,8 @@ Validation ran on an isolated copy using the existing lockfile-matched installed
 
 ## Before publishing
 
-- Create or select the user's separate OLWIF GitHub organisation and confirm the repository destination.
+- Repository destination confirmed: `Olwifofficial/olwif`, public, under the user's separate organisation.
+- Complete the organisation owner's Git authentication before uploading; do not reuse an unrelated account's credentials.
 - Recheck the exact files staged for upload; never upload the entire working workspace.
 - Keep private configuration and runtime data out of both the initial commit and later history.
 - Update the source-release status and add the real repository URL only after successful publication.
