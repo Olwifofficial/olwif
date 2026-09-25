@@ -1,0 +1,93 @@
+/* Self-hosted Merriweather Regular. Licence: /fonts/Merriweather-OFL.txt */
+@font-face {
+  font-family: "Merriweather";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/merriweather-regular-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Merriweather";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/merriweather-regular-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+:root {
+  --font-reading: "Merriweather", Georgia, "Times New Roman", serif;
+  --font-interface: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+/* A small brand signature above the original homepage greeting. */
+.minimalist-home .home-wordmark {
+  font-family: var(--font-interface);
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -1.3px;
+  margin-bottom: 12px;
+  color: #51337c;
+}
+.minimalist-home .home-wordmark span {
+  font-size: .42em;
+  color: inherit;
+}
+
+/* The reading layer: narrative paragraphs, findings, and evidence lists. */
+p,
+p.muted,
+.assessment p,
+.finding p,
+.prose-page p,
+.evidence-list {
+  font-family: var(--font-reading);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.65;
+  color: #2D3748;
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+}
+.evidence-list li::before { top: .75em; }
+.prose-page { max-width: 760px; }
+
+/* Keep utility text distinct from the prose, with no change to warning colours. */
+p.eyebrow {
+  font-family: var(--font-interface);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #8467a6;
+}
+p.small {
+  font-family: var(--font-interface);
+  font-size: 14px;
+  letter-spacing: 0;
+}
+p.mono, code {
+  font-family: ui-monospace, Consolas, monospace;
+  letter-spacing: 0;
+}
+p.mono { font-size: 14px; }
+.research-loading-caption p {
+  font: inherit;
+  color: inherit;
+  letter-spacing: 0;
+}
+
+/* Larger summaries need wider cards: three + two, then two, then one. */
+.assessment-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 18px; }
+.assessment { grid-column: span 2; padding: 22px; min-width: 0; }
+.assessment:nth-last-child(-n+2) { grid-column: span 3; }
+.assessment h3 { font-size: 19px; }
+@media(max-width:900px) {
+  .assessment-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .assessment, .assessment:nth-last-child(-n+2) { grid-column: auto; }
+  .assessment:last-child { grid-column: 1 / -1; }
+}
+@media(max-width:600px) {
+  .assessment-grid { grid-template-columns: minmax(0, 1fr); }
+  .assessment, .assessment:nth-last-child(-n+2), .assessment:last-child { grid-column: auto; }
+}

@@ -1,0 +1,5 @@
+import SiteShell from "@/app/site-shell";import {requireChatGPTUser} from "@/app/chatgpt-auth";import {isOwner,getSettings,runtime} from "@/lib/server";import {getDb} from "@/db";import {reports} from "@/db/schema";import {desc} from "drizzle-orm";import AdminDesk from "./owner-desk";
+export const dynamic="force-dynamic";
+export default async function Admin(){await requireChatGPTUser("/admin");if(!await isOwner())return <SiteShell><main className="page-wrap panel"><h1 className="page-title">This desk is owner-only.</h1><p>This signed-in account is not the configured owner. The research pages are separate from these controls.</p><a href="/signout-with-chatgpt?return_to=%2Fadmin" target="_top" className="inline-link">Sign out and use your owner account</a></main></SiteShell>;
+ const items=await getDb().select({id:reports.id,name:reports.name,chain:reports.chain,address:reports.address,hidden:reports.hidden,createdAt:reports.createdAt}).from(reports).orderBy(desc(reports.createdAt)).limit(30);
+ return <AdminDesk initial={await getSettings()} items={items} github={!!runtime("GITHUB_TOKEN")} search={!!runtime("TAVILY_API_KEY")}/>;}

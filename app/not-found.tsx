@@ -1,0 +1,1 @@
+import SiteShell from "./site-shell";export default function Missing(){return <SiteShell><main className="page-wrap panel"><h1 className="page-title">Nothing here to inspect.</h1><p>This report does not exist or has been hidden by the owner.</p><a href="/" className="inline-link">Back to search</a></main></SiteShell>;}

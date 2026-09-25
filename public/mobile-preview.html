@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>OLWIF — Mobile preview</title>
+    <style>
+      * { box-sizing: border-box; }
+      html, body { margin: 0; min-height: 100%; }
+      body {
+        height: 100dvh;
+        min-height: 420px;
+        display: flex;
+        flex-direction: column;
+        background: radial-gradient(ellipse at center, #e8ddf7, #f8f5fc 75%);
+        color: #392653;
+        font-family: "Trebuchet MS", Arial, sans-serif;
+      }
+      header { padding: 18px 20px 8px; text-align: center; }
+      h1 { margin: 0 0 6px; font-size: 21px; }
+      p { margin: 0; font-size: 14px; line-height: 1.5; }
+      .stage {
+        flex: 1;
+        min-height: 0;
+        display: grid;
+        place-items: center;
+        padding: 16px 20px 24px;
+        overflow: hidden;
+      }
+      .phone-space { position: relative; width: 414px; height: 884px; flex-shrink: 0; }
+      .phone {
+        position: absolute;
+        inset: 0 auto auto 0;
+        width: 414px;
+        height: 884px;
+        padding: 8px 0;
+        border: 12px solid #392653;
+        border-radius: 46px;
+        background: #392653;
+        box-shadow: 0 18px 48px #4b2b7629;
+        transform: scale(var(--phone-scale, 1));
+        transform-origin: top left;
+      }
+      iframe {
+        display: block;
+        width: 390px;
+        height: 844px;
+        border: 0;
+        border-radius: 28px;
+        background: #f8f5fc;
+      }
+      footer { padding: 0 16px 16px; text-align: center; font-size: 13px; }
+      a { color: #6841ac; text-underline-offset: 3px; }
+      a:focus-visible { outline: 3px solid #6841ac; outline-offset: 4px; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>OLWIF on mobile</h1>
+      <p>Live website · 390 × 844 phone view · Scroll inside the phone</p>
+    </header>
+    <main class="stage" aria-label="Interactive mobile preview">
+      <div class="phone-space">
+        <div class="phone">
+          <iframe src="/" title="OLWIF live mobile website"></iframe>
+        </div>
+      </div>
+    </main>
+    <footer><a href="/" target="_blank" rel="noopener">Open the full-size website</a></footer>
+    <script>
+      // Scale only the frame: the live page always retains its 390px viewport.
+      const stage = document.querySelector('.stage');
+      const space = document.querySelector('.phone-space');
+      const fitPhone = () => {
+        const scale = Math.min(1, (stage.clientWidth - 40) / 414, (stage.clientHeight - 40) / 884);
+        const safeScale = Math.max(0.1, scale);
+        space.style.width = `${414 * safeScale}px`;
+        space.style.height = `${884 * safeScale}px`;
+        space.style.setProperty('--phone-scale', safeScale);
+      };
+      new ResizeObserver(fitPhone).observe(stage);
+      fitPhone();
+    </script>
+  </body>
+</html>

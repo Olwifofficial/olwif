@@ -1,0 +1,2 @@
+"use client";import SiteShell from "./site-shell";import {Button} from "@/components/ui/button";
+export default function ErrorPage({reset}:{reset:()=>void}){return <SiteShell><main className="page-wrap panel"><h1 className="page-title">O hit a little snag.</h1><p>This page could not load. Your wallet is not connected and no trades can be made here.</p><div className="row"><Button onClick={reset}>Try again</Button><a className="inline-link" href="/">Back to search</a></div></main></SiteShell>;}
