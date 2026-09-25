@@ -1,6 +1,6 @@
 # Source release checks — 25 September 2026
 
-Status: local release candidate. The public repository https://github.com/Olwifofficial/olwif has been created, but the code upload is pending GitHub authentication for the organisation owner. No source has been pushed yet.
+Status: initial source published to [Olwifofficial/olwif](https://github.com/Olwifofficial/olwif) on 25 September 2026 using the separate OLWIF account. This is a source release, not a full product launch. The live website remains a coming-soon page.
 
 ## Scope
 
@@ -21,11 +21,11 @@ Status: local release candidate. The public repository https://github.com/Olwifo
 
 Validation ran on an isolated copy using the existing lockfile-matched installed dependencies. A fresh dependency installation on another machine and a hosted end-to-end deployment have not been verified. No production service, production database or live domain was changed.
 
-## Before publishing
+## Publication and future updates
 
 - Repository destination confirmed: `Olwifofficial/olwif`, public, under the user's separate organisation.
-- Complete the organisation owner's Git authentication before uploading; do not reuse an unrelated account's credentials.
-- Recheck the exact files staged for upload; never upload the entire working workspace.
+- The initial upload used the organisation owner's separate account. Commit authors and committers use OLWIF and its GitHub-provided private commit email; the original workspace history was not imported.
+- Use the OLWIF account for future uploads; do not reuse an unrelated account's credentials.
+- Recheck the exact files staged for every update; never upload the entire working workspace.
 - Keep private configuration and runtime data out of both the initial commit and later history.
-- Update the source-release status and add the real repository URL only after successful publication.
 - Do not describe this source release as an independent audit, token endorsement, or full product launch.

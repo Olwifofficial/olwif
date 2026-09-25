@@ -2,7 +2,7 @@
 
 OLWIF is a token research website that gathers public evidence into dated reports. It helps readers inspect token identity, risk signals, project information, market activity, and missing evidence. It does not trade, hold funds, request seed phrases, or provide a safety guarantee or investment recommendation.
 
-This is a source release candidate prepared on 25 September 2026. It is not a claim that a repository has been published, that the software has passed an independent security audit, or that a generic deployment is ready for public use.
+The initial source release was published on 25 September 2026 at [Olwifofficial/olwif](https://github.com/Olwifofficial/olwif). Publishing the source is not a full product launch, an independent security audit, or confirmation that a generic deployment is ready for public use. The public OLWIF website remains a coming-soon page.
 
 ## What the reports mean
 
